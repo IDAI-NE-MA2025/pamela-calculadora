@@ -95,12 +95,12 @@
 		</div>
 
 		<div id="btns" class="btns">
-			<button id="suma">Sumar</button>
-			<button id="resta">Restar</button>
-			<button id="multiplica">Multiplicar</button>
-			<button id="divide">Dividir</button>
-			<button id="exponente">Exponente</button>
-			<button id="raiz">Raiz</button>
+			<button id="suma" onclick="sumar()">Sumar</button>
+			<button id="resta" onclick="resta()">Resta</button>
+			<button id="multiplica" onclick="multiplicar()">Multiplicar</button>
+			<button id="divide" onclick="divide()">Dividir</button>
+			<button id="exponente" onclick="exponente()">Exponente</button>
+			<button id="raiz" onclick="raiz()">Raiz</button>
 
 
 		</div>
@@ -109,6 +109,83 @@
 			<p id="resultado">-</p>
 		</div>	
 	</div>
+
+	<script>
+		function sumar(){
+
+			var num1 = document.getElementById("numero1") .value;
+			var num2 = document.getElementById("numero2") .value;
+			var resultado = parseInt(num1) + parseInt(num2);
+			var mostrar = document.getElementById ("resultado");
+			mostrar.innerHTML = resultado;
+			}
+		
+		function resta(){
+
+			var num1 = document.getElementById("numero1") .value;
+			var num2 = document.getElementById("numero2") .value;
+			var resultado = parseInt(num1) - parseInt(num2);
+			var mostrar = document.getElementById ("resultado");
+			mostrar.innerHTML = resultado;
+			}
+		
+		function multiplicar(){
+
+			var num1 = document.getElementById("numero1") .value;
+			var num2 = document.getElementById("numero2") .value;
+			var resultado = parseInt(num1) * parseInt(num2);
+			var mostrar = document.getElementById ("resultado");
+			mostrar.innerHTML = resultado;
+
+		}
+
+		function divide(){
+
+			var num1 = document.getElementById("numero1") .value;
+			var num2 = document.getElementById("numero2") .value;
+			var resultado = parseInt(num1) / parseInt(num2);
+			var mostrar = document.getElementById ("resultado");
+			mostrar.innerHTML = resultado;
+
+		}
+
+		function exponente(){
+			var num1 = document.getElementById("numero1").value;
+			var num2 = document.getElementById("numero2").value;
+
+			if (num1 === "" || num2 === "") {
+			document.getElementById("resultado").innerHTML = "Ingresa ambos números.";
+			return;
+			}
+
+			var n1 = parseFloat(num1);
+			var n2 = parseFloat(num2);
+
+			var resultado = Math.pow(n1, n2);
+			document.getElementById("resultado").innerHTML = resultado;
+		}
+
+		function raiz() {
+			var num1 = document.getElementById("numero1").value;
+
+			if (num1 === "") {
+				document.getElementById("resultado").innerHTML = "Ingresa un número.";
+				return;
+			}
+
+			var n1 = parseFloat(num1);
+
+			if (n1 < 0) {
+				document.getElementById("resultado").innerHTML = "Error: no se puede sacar raíz de un número negativo.";
+				return;
+			}
+
+			var resultado = Math.sqrt(n1);
+			document.getElementById("resultado").innerHTML = resultado;
+		}
+		
+
+	</script>
 
 </body>
 </html>
